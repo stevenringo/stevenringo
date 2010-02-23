@@ -16,26 +16,25 @@ Compass.configuration.parse('compass_config.rb')
 #   filter :sass, Compass.sass_engine_options
 # end
 
+# ------------ Compiling ------------
+
 compile '/stylesheets/*/' do
   filter :sass, Compass.sass_engine_options if item[:extension] == 'sass'
 end
 
 compile '*' do
-  filter :erb
+  filter :haml
   layout 'default'
 end
 
+# ------------ Routing ------------
 
 route '/stylesheets/*' do
   item.identifier.chop + ".css"
 end
 
-# route '/stylesheet/' do
-#   '/style.css'
-# end
-
 route '*' do
   item.identifier + 'index.html'
 end
 
-layout '*', :erb
+layout '*', :haml
