@@ -5,7 +5,7 @@
 #
 # * Item identifiers start and end with a slash (e.g. “/about/” for the file
 #   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   item, use the pattern “/about/*/”. “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
 require 'compass'
@@ -14,11 +14,15 @@ Compass.configuration.parse('compass_config.rb')
 
 # ------------ Compiling ------------
 
-compile '/stylesheets/_*' do
+compile '/images/*/' do
   nil # mark as "don't compile"
 end
 
-compile '/stylesheets/*' do
+compile '/stylesheets/_*/' do
+  nil # sass partials. Do not compile individually
+end
+
+compile '/stylesheets/*/' do
   filter :sass, Compass.sass_engine_options 
 end
 
@@ -29,11 +33,15 @@ end
 
 # ------------ Routing ------------
 
+route '/images/*/' do
+  item.identifier.chop + "." + item[:extension]
+end
+
 route '/stylesheets/_*' do
   nil
 end
 
-route '/stylesheets/*' do
+route '/stylesheets/*/' do
   item.identifier.chop + ".css"
 end
 

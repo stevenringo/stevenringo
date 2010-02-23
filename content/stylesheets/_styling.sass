@@ -57,7 +57,7 @@ body
   overflow: hidden
   height: 99px
   width: 634px
-  background-image: url(/images/apparently-so-logo.png)
+  background-image= image_url("apparently-so-logo.png")
   background-repeat: no-repeat
   background-position: 50% 50%
   margin: 90px auto 90px
@@ -164,11 +164,11 @@ body > #page
     text-align: right
 
 
-#endnotes
+/ #endnotes
 
 a
   &#twitter
-    background: url(/images/twitter.png) no-repeat
+    background= image_url("twitter.png") "no-repeat"
     height: 24px
     padding-left: 32px
     padding-bottom: 5px
@@ -178,7 +178,7 @@ a
     color: #1b5f94
 
   &#rss
-    background: url(/images/rss.png) no-repeat
+    background= image_url("rss.png") "no-repeat"
     height: 24px
     padding-left: 32px
     display: block
