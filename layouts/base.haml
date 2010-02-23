@@ -1,0 +1,37 @@
+!!!
+%html{ :lang => "en" }
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+    %title= @item[:title].match(/Apparently so$/) ? @item[:title] : "#{strip_html(@item[:title])} &#8212; Apparently so"
+    %link{:href => "/stylesheets/screen.css", :rel => "stylesheet", :media => "screen, projection", :type => "text/css" }
+    %link{:href => "/stylesheets/override.css", :rel => "stylesheet", :media => "screen, projection", :type => "text/css" }
+    / %script{:src => "/javascripts/jquery-1.4.1.js", :type => "text/javascript"}
+  %body
+    #page.showgrid
+      #header
+        #navigation
+          %ul
+            %li 
+              %a{ :href => "/" } Articles
+            %li
+              %a{ :href => "/about", :title => "About" } About
+            %li
+              %a{ :href => "/contact", :title => "Contact" } Contact
+            %li
+              %a{ :href => "/subscribe", :title => "Subscribe" } Subscribe
+        #logo
+          %h1
+            %a{ :href => "/" } Apparently so
+      #content
+        ~ yield
+    #pagewidth
+      #footer
+        %ul#links
+          %li
+            %a#twitter{ :href => "/" } Follow me on twitter
+          %li
+            %a#rss{ :href => "/" } Subscribe
+        #search
+          %form{ :action => "dunno"}
+            %input{ :type => "text", :value => "search" }
+    %script{:src => "/javascripts/site.js", :type => "text/javascript"}
