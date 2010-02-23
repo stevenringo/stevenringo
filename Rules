@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-# A few helpful tips about the Rules file:
-#
 # * The order of rules is important: for each item, only the first matching
 #   rule is applied.
 #
@@ -10,8 +8,16 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-compile '/stylesheet/' do
-  # don’t filter or layout
+require 'compass'
+
+Compass.configuration.parse('compass_config.rb')
+
+# compile '/content/stylesheets/*.sass' do
+#   filter :sass, Compass.sass_engine_options
+# end
+
+compile '/stylesheets/*/' do
+  filter :sass, Compass.sass_engine_options if item[:extension] == 'sass'
 end
 
 compile '*' do
@@ -19,9 +25,14 @@ compile '*' do
   layout 'default'
 end
 
-route '/stylesheet/' do
-  '/style.css'
+
+route '/stylesheets/*' do
+  item.identifier.chop + ".css"
 end
+
+# route '/stylesheet/' do
+#   '/style.css'
+# end
 
 route '*' do
   item.identifier + 'index.html'
