@@ -12,7 +12,22 @@ require 'compass'
 
 Compass.configuration.parse('compass_config.rb')
 
+# ------------ Preprocessing ------------
+
+preprocess do
+  items.each do |item|
+    if item.identifier =~ /^\/articles\//
+      item[:kind] = 'article'
+    end
+  end
+end
+
 # ------------ Compiling ------------
+
+compile %r(^/articles/\d{4}-\d{2}-\d{2}-.+/) do
+  filter :kramdown
+  layout 'post'
+end
 
 compile '/images/*/' do
   nil # mark as "don't compile"
@@ -32,6 +47,10 @@ compile '*' do
 end
 
 # ------------ Routing ------------
+
+route %r(^/articles/\d{4}-\d{2}-\d{2}-.+/) do
+  item.identifier.gsub(/articles\/\d{4}-\d{2}-\d{2}-(.+)/, '\1index.html')
+end
 
 route '/images/*/' do
   item.identifier.chop + "." + item[:extension]

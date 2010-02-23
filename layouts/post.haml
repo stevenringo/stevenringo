@@ -1,0 +1,12 @@
+-render "base" do
+  .post
+    .heading
+      %span.date
+        #{@item.created_at.strftime("%d %B")}
+        %span.year
+          #{@item.created_at.strftime("%Y")}
+        
+      %h1
+        #{@item[:title]}
+    .entry
+      ~ yield
