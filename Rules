@@ -10,7 +10,7 @@
 
 require 'compass'
 
-Compass.configuration.parse('compass_config.rb')
+Compass.add_project_configuration('compass_config.rb')
 
 # ------------ Preprocessing ------------
 
@@ -29,13 +29,22 @@ compile %r(^/articles/\d{4}-\d{2}-\d{2}-.+/) do
   layout 'post'
 end
 
+compile %r(^/(about|contact)) do
+  filter :kramdown
+  layout 'default'
+end
+
+compile '/javascripts/*/' do
+  nil # mark as "don't compile"
+end
+
 compile '/images/*/' do
   nil # mark as "don't compile"
 end
 
-compile '/stylesheets/_*/' do
-  nil # sass partials. Do not compile individually
-end
+# compile '/stylesheets/_*/' do
+#   nil # sass partials. Do not compile individually
+# end
 
 compile '/stylesheets/*/' do
   filter :sass, Compass.sass_engine_options 
@@ -62,6 +71,10 @@ end
 
 route '/stylesheets/*/' do
   item.identifier.chop + ".css"
+end
+
+route '/javascripts/*/' do
+  item.identifier.chop + ".js"
 end
 
 route '*' do

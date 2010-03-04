@@ -21,6 +21,8 @@ I was expecting ~20s from the legendary Mac OS startup sound to seeing my 'deskt
 > startup disk.
 >
 > And here is another para. in the Blockquote...
+{: .class1 .class2}
+
 
 To explain: It was trying to boot from the old drive (which is now no longer connected). Even though it is a
 perfect "clone", there must be some drive IDs etc that the OS is looking for in order to identify the correct
@@ -28,7 +30,7 @@ disk.
 
 I just timed the boot now that that's fixed. From power on to login ~ 16s!
 
-~~~~~~~~~~~~~~~~~~
+~~~~
 def image(thumb, normal, desc="")
   <a href="#{normal}" title="#{desc}">#{image_tag(thumb, desc)}</a>
 end
@@ -36,8 +38,5 @@ end
 def image_tag(src, desc="")
   %(<img src="#{src}" alt="#{desc}" />)
 end
-~~~~~~~~~~~~~~~~~~
-{:lang="ruby"}
-
-
-Hello there
+~~~~
+{: .ruby}

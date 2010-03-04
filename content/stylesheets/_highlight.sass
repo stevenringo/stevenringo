@@ -1,0 +1,60 @@
+!code         = #f8f8f8
+!comment      = #7c7c7c
+!keyword      = "orange"
+!method       = #FFFFB6
+!string       = #A8FF60
+!subst        = #DAEFA3
+!regexp       = #E9C062
+!classtitle   = #FFFFB6
+!symbol       = #C6C5FE
+!csskeyword  = #96CBFE
+!cssrule     = #FFFFB6
+!cssclass    = #FFFFFF
+!csshexcolor = #C6C5FE
+!cssnumber   = #FF73FD
+
+pre
+  background: #333
+
+  code
+    color= !code
+
+  .shebang, .comment, .template_comment, .javadoc
+    color= !comment
+
+  .keyword, .tag, .ruby .function .keyword
+    color= !keyword
+
+  .function .keyword, .sub .keyword, .method, .list .title
+    color= !method
+
+  .string, .attribute .value, .cdata, .filter .argument, .attr_selector, .apache .cbracket, .date
+    color= !string
+
+  .subst
+    color= !subst
+
+  .regexp
+    color= !regexp
+
+  .function .title, .sub .identifier, .pi, .decorator, .ini .title, .class .title, .smalltalk .class, .javadoctag, .phpdoc
+    color= !classtitle
+
+  .symbol, .number, .variable, .vbscript, .literal
+    color: !symbol
+
+  .css
+    .keyword
+      color= !csskeyword
+
+    .rule .keyword, .id
+      color= !cssrule
+
+    .class
+      color= !cssclass
+
+  .hexcolor
+    color= !csshexcolor
+
+  .number
+    color: !cssnumber

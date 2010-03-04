@@ -57,7 +57,7 @@ body
   overflow: hidden
   height: 99px
   width: 634px
-  background-image= image_url("apparently-so-logo.png")
+  background-image: url("../images/theme/apparently-so-logo.png")
   background-repeat: no-repeat
   background-position: 50% 50%
   margin: 90px auto 90px
@@ -130,12 +130,13 @@ body
     border-left: 1px solid #ccc
     margin-left: 20px
     font-style: italic
+  pre
+    padding: 10px
   
-  code, pre
+  pre code
     font-family: Monaco, Menlo, "Courier New"
-    font-size: 0.85em !important
-
-
+    font-size: 0.9em
+    
 
 html, body, #page
   height: 100%
@@ -164,11 +165,9 @@ body > #page
     text-align: right
 
 
-/ #endnotes
-
 a
   &#twitter
-    background= image_url("twitter.png") "no-repeat"
+    background-image: url(../images/theme/twitter.png) "no-repeat"
     height: 24px
     padding-left: 32px
     padding-bottom: 5px
@@ -178,7 +177,7 @@ a
     color: #1b5f94
 
   &#rss
-    background= image_url("rss.png") "no-repeat"
+    background-image: url(../images/theme/rss.png) "no-repeat"
     height: 24px
     padding-left: 32px
     display: block
