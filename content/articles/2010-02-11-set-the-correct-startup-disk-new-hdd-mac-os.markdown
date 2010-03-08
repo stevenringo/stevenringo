@@ -1,16 +1,31 @@
 ---
-title: Set the correct Startup Disk when migrating to a cloned drive on Mac OS X
+title: Set the correct startup disk when migrating to a cloned drive on Mac OS
 created_at: 2009-10-28 17:29
 ---
 
 I just migrated my MacBook Pro to a Crucial 128GB SSD drive using
 [SuperDuper!](http://www.shirt-pocket.com/SuperDuper/SuperDuperDescription.html)
 
-
 ## This would be an H2 heading
 
 Even with the new speedy gonzales in the system, boot times were a tad slow coming in at a whopping ~60s. It
 took 40s to just show the Apple logo.
+
+~~~~
+describe Tour do
+  before do
+    ics   = File.join(File.dirname(__FILE__), 'local_copy.ics')
+    @tour = Tour.new(ics)
+  end
+
+  it "should find upcoming gigs" do
+    @tour.upcoming_gigs.all? { |gig| gig.dtstart.should > DateTime.now }
+  end
+end
+~~~~
+{: .ruby}
+
+
 
 ### This would be an H3 heading
 
@@ -30,13 +45,3 @@ disk.
 
 I just timed the boot now that that's fixed. From power on to login ~ 16s!
 
-~~~~
-def image(thumb, normal, desc="")
-  <a href="#{normal}" title="#{desc}">#{image_tag(thumb, desc)}</a>
-end
-
-def image_tag(src, desc="")
-  %(<img src="#{src}" alt="#{desc}" />)
-end
-~~~~
-{: .ruby}

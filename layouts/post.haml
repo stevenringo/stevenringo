@@ -1,12 +1,15 @@
 -render "base" do
-  .post
-    .heading
-      %span.date
-        #{@item.created_at.strftime("%d %B")}
-        %span.year
-          #{@item.created_at.strftime("%Y")}
-        
-      %h1
-        #{@item[:title]}
-    .entry
-      ~ yield
+  #meta
+    #date
+      #{@item.created_at.strftime("%d <strong>%B<\/strong> %Y")}, <em>by</em> Steven Ringo
+    %h1#title
+      #{@item[:title]}
+    %ul#share
+      %li 
+        %a{ :href => "/" } Share on twitter
+      %li
+        %a{ :href => "/" } Read later
+      %li
+        %a{ :href => "/" } Print
+  #main
+    ~ yield

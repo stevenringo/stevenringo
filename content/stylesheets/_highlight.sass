@@ -1,60 +1,86 @@
-!code         = #f8f8f8
-!comment      = #7c7c7c
-!keyword      = "orange"
-!method       = #FFFFB6
-!string       = #A8FF60
-!subst        = #DAEFA3
-!regexp       = #E9C062
-!classtitle   = #FFFFB6
-!symbol       = #C6C5FE
-!csskeyword  = #96CBFE
-!cssrule     = #FFFFB6
-!cssclass    = #FFFFFF
-!csshexcolor = #C6C5FE
-!cssnumber   = #FF73FD
-
+/
+  using the github theme here
+  
 pre
-  background: #333
-
   code
-    color= !code
+    display: block
+    color: #000
 
-  .shebang, .comment, .template_comment, .javadoc
-    color= !comment
 
-  .keyword, .tag, .ruby .function .keyword
-    color= !keyword
+  .comment, .template_comment, .diff .header, .javadoc
+    color: #998
+    font-style: italic
 
-  .function .keyword, .sub .keyword, .method, .list .title
-    color= !method
 
-  .string, .attribute .value, .cdata, .filter .argument, .attr_selector, .apache .cbracket, .date
-    color= !string
+  .keyword, .css .rule .keyword, .winutils, .javascript .title, .lisp .title, .subst
+    color: #000
+    font-weight: bold
 
-  .subst
-    color= !subst
+
+  .number, .hexcolor
+    color: #40a070
+
+
+  .string, .attribute .value, .phpdoc
+    color: #d14
+
+
+  .title, .id
+    color: #900
+    font-weight: bold
+
+
+  .javascript .title, .lisp .title, .subst
+    font-weight: normal
+
+
+  .class .title
+    color: #458
+    font-weight: bold
+
+
+  .tag, .css .keyword, .html .keyword, .tag .title, .django .tag .keyword
+    color: #000080
+    font-weight: normal
+
+
+  .attribute, .variable, .instancevar, .lisp .body
+    color: #008080
+
 
   .regexp
-    color= !regexp
+    color: #009926
 
-  .function .title, .sub .identifier, .pi, .decorator, .ini .title, .class .title, .smalltalk .class, .javadoctag, .phpdoc
-    color= !classtitle
 
-  .symbol, .number, .variable, .vbscript, .literal
-    color: !symbol
+  .class
+    color: #458
+    font-weight: bold
 
-  .css
-    .keyword
-      color= !csskeyword
 
-    .rule .keyword, .id
-      color= !cssrule
+  .symbol, .lisp .keyword
+    color: #990073
 
-    .class
-      color= !cssclass
 
-  .hexcolor
-    color= !csshexcolor
+  .builtin, .built_in, .lisp .title
+    color: #0086b3
 
-  .number
-    color: !cssnumber
+
+  .preprocessor, .pi, .doctype, .shebang, .cdata
+    color: #999
+    font-weight: bold
+
+
+  .deletion
+    background: #fdd
+
+
+  .addition
+    background: #dfd
+
+
+  .diff .change
+    background: #0086b3
+
+
+  .chunk
+    color: #aaa

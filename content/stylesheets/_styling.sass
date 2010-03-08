@@ -1,6 +1,37 @@
+@import compass/layout.sass
+
+!thinborder    = 1px "solid" #ddd
+!bodytextcolor = #424242
+
+html, body
+  height: 100%
+
+#page
+  min-height: 100%
+  height: auto !important
+  height: 100%
+  margin-bottom: -100px
+  background: red
+  
+  #push
+    clear: both
+
+#footer
+  clear: both
+  position: relative
+  height: 100px
+
 body
-  font-family: "Helvetica"
+  font-family: Georgia, "Hoefler Text", "Times New Roman", serif
   background: white
+  color = !bodytextcolor
+  line-height: 1.5em  
+
+strong
+  font-weight: bold
+
+em
+  font-style: italic
 
 #navigation
   width: 100%
@@ -8,7 +39,7 @@ body
   overflow: hidden
   position: relative
   font-weight: bold
-  font-size: 0.9em
+  font-size: 1em
 
   ul
     clear: left
@@ -29,7 +60,7 @@ body
       margin-top: 10px
       padding-bottom: 10px
       padding-right: 10px
-      border-bottom: 1px solid #cfdde5
+      border-bottom = !thinborder
 
     > li:last-child
       padding-right: 0px
@@ -51,141 +82,108 @@ body
         &:hover
           color: #1b5f94
 
-
 #logo h1 a
   text-indent: -9999em
   overflow: hidden
-  height: 99px
-  width: 634px
+  height: 174px
+  width: 950px
   background-image: url("/images/theme/apparently-so-logo.png")
   background-repeat: no-repeat
   background-position: 50% 50%
-  margin: 90px auto 90px
+  margin: 60px auto 60px auto
   display: block
 
-#content
-  padding-bottom: 200px
-  font-size: 1.05em
-  line-height: 1.6em
-  margin-top: 0px
-  color: #444
-  font-family: "Times New Roman"
-  line-height: 1.6em
-  font-size: 0.98em
+#meta
+  text-align: center
+
+  #date
+    border-bottom: 1px solid #c5c5c5
+
+  #title
+    padding: 30px 0 60px 0
+    margin-bottom: 20px
+    background: url(/images/theme/title-flourish.png) no-repeat center bottom
+    font-size: 1.6em
+    font-weight: bold
+    color: #2c2c2c
+    line-height: 1.2em
+
+  #share
+    border-top: 1px solid #c5c5c5
+    padding-top: 10px
+    font-size: 0.95em
+    color: #686868
+
+    li
+      line-height: 1.4em
+      
+      a
+        color: #1b5f94
+        text-decoration: none
+      
+        &:visited
+          color: #686868
+
+        &:hover
+          color: #1b5f94
+
+        &.active
+          color: #1b5f94
+
+          &:hover
+            color: #1b5f94
+
+#main
 
   p
-    margin-bottom: 0.9em
+    margin-bottom: 1em
 
-  h1
-    font-size: 1.3em
+  a
+    text-decoration: none
     color: #1b5f94
-    font-weight: bold
-    font-family: Helvetica
-    margin-left: 160px
 
+    &:visited
+      color = !bodytextcolor
+
+    &:hover
+      color: #1b5f94
+
+    &.active
+      color: #1b5f94
+
+      &:hover
+        color: #1b5f94
 
   h2
-    font-size: 1.15em
-    padding-top: 0.5em
-    padding-bottom: 0.3em
+    margin-top: 0
+    margin-bottom: 0
+    font-size: 1.33333em
     font-weight: bold
-    font-family: Helvetica
-    color: #1b5f94
+    padding: 1.2em 0 0.6em 0
 
   h3
-    font-size: 1.1em
-    padding-top: 0.5em
-    padding-bottom: 0.5em
+    margin-top: 0
+    margin-bottom: 0
+    font-size: 1.16667em
     font-weight: bold
-    color: #1b5f94
-    font-family: Helvetica
-
-  .heading
-    border-bottom: 1px solid #cfdde5
-    padding-bottom: .1em
-    margin-bottom: .5em
-    position: relative
-
-  .date
-    font-family: Helvetica
-    font-weight: bold
-    font-size: 0.90em
-    position: absolute
-    bottom: 0
-    left: 0
-
-    .year
-      font-family: "Helvetica Neue"
-      font-weight: 200
-
-  .heading h1
-    font-size: 1.3em
-    color: #1b5f94
-    font-weight: bold
-    font-family: Helvetica
-    margin-left: 160px
+    padding: 1.2em 0 0.6em 0
 
   blockquote
     padding-left: 20px
     border-left: 1px solid #ccc
     margin-left: 20px
     font-style: italic
-  pre
-    padding: 10px
   
-  pre code
+  pre
+    border= !thinborder
     font-family: Monaco, Menlo, "Courier New"
-    font-size: 0.9em
-    
-
-html, body, #page
-  height: 100%
-
-
-body > #page
-  height: auto
-  min-height: 100%
-
-
-#pagewidth
-  position: relative
-  margin-top: -100px
-  height: 99px
-  clear: both
-  font-size: 0.8em
-  line-height: 1.4em
-  background: #f2f2f2
-  border-top: 1px solid #cfdde5
-
-
-#footer
-  padding-top: 15px
-
-  #search
-    text-align: right
-
-a
-  &#twitter
-    background: url("/images/theme/twitter.png") no-repeat
-    height: 24px
-    padding-left: 32px
-    padding-bottom: 5px
-    display: block
-    line-height: 24px
-    font-weight: bold
-    color: #1b5f94
-
-  &#rss
-    background: url("/images/theme/rss.png") no-repeat
-    height: 24px
-    padding-left: 32px
-    display: block
-    line-height: 24px
-    font-weight: bold
-    color: #1b5f94
-
-
-#search form input[type=text]
-  width: 200px
-
-
+    font-size: 0.8em
+    background: #fff
+    padding: 2px
+    line-height: 1.3em
+    font-size: .75em
+    overflow: auto
+    code
+      border= !thinborder
+      background: #f8f8f8
+      padding: 10px
