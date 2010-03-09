@@ -11,7 +11,7 @@
       
   %body
     #page.showgrid
-      #header
+      #content
         #navigation
           %ul
             %li 
@@ -26,6 +26,7 @@
           %h1
             %a{ :href => "/" } Apparently so
         ~ yield
-      #push
+      #filler
     #footer
-      Footer stuff will go in here
+      #copyright
+        %p Content &copy; 2010, Steven Ringo. Source code <em>at</em> <a href="/">github</a>. Powered <em>by</em> <a href="/">nanoc</a>.

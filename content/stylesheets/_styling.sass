@@ -1,25 +1,28 @@
-@import compass/layout.sass
-
-!thinborder    = 1px "solid" #ddd
-!bodytextcolor = #424242
+!thinborder    = 1px "solid" #eee
+!bodytextcolor = #444
 
 html, body
   height: 100%
 
-#page
-  min-height: 100%
-  height: auto !important
-  height: 100%
-  margin-bottom: -100px
-  background: red
-  
-  #push
-    clear: both
+body 
+  #page
+    // very important that page is inside body. the +container mixin used in layout sets the margin-bottom
+    // and we have to ensure its overridden by this setup:
+    min-height: 100%
+    height: auto !important
+    height: 100%
+    margin-bottom: -100px
+
+    #filler
+      //so we can have the magic sticky footer
+      clear: both
+      height: 100px
 
 #footer
   clear: both
   position: relative
-  height: 100px
+  height: 99px
+  border-top= !thinborder
 
 body
   font-family: Georgia, "Hoefler Text", "Times New Roman", serif
@@ -32,6 +35,10 @@ strong
 
 em
   font-style: italic
+  
+sup
+  vertical-align: super
+  font-size: 0.8em
 
 #navigation
   width: 100%
@@ -85,19 +92,20 @@ em
 #logo h1 a
   text-indent: -9999em
   overflow: hidden
-  height: 174px
+  height: 175px
   width: 950px
-  background-image: url("/images/theme/apparently-so-logo.png")
-  background-repeat: no-repeat
-  background-position: 50% 50%
-  margin: 60px auto 60px auto
+  background: url("/images/theme/apparently-so-logo.png") no-repeat center top
+  margin: 40px auto 60px auto
+  padding-bottom: 20px
   display: block
+  border-bottom: 1px solid #eee
 
 #meta
   text-align: center
 
   #date
-    border-bottom: 1px solid #c5c5c5
+    color: #999
+    border-bottom: 1px solid #eee
 
   #title
     padding: 30px 0 60px 0
@@ -109,10 +117,10 @@ em
     line-height: 1.2em
 
   #share
-    border-top: 1px solid #c5c5c5
+    border-top: 1px solid #eee
     padding-top: 10px
     font-size: 0.95em
-    color: #686868
+    color: #999
 
     li
       line-height: 1.4em
@@ -122,7 +130,7 @@ em
         text-decoration: none
       
         &:visited
-          color: #686868
+          color: #999
 
         &:hover
           color: #1b5f94
@@ -134,9 +142,20 @@ em
             color: #1b5f94
 
 #main
+  padding-bottom: 60px
+  margin-bottom: 40px
+  background: url(/images/theme/post-flourish.png) no-repeat center bottom
 
   p
-    margin-bottom: 1em
+    margin-bottom: 1.5em
+
+  //
+    > p:first-child:first-letter
+      font-size: 3.2em
+      padding-top: 10px
+      padding-right: 3px
+      font-weight: bold
+      float: left
 
   a
     text-decoration: none
@@ -153,20 +172,19 @@ em
 
       &:hover
         color: #1b5f94
-
   h2
     margin-top: 0
     margin-bottom: 0
     font-size: 1.33333em
     font-weight: bold
-    padding: 1.2em 0 0.6em 0
+    padding: 0 0 1.2em 0
 
   h3
     margin-top: 0
     margin-bottom: 0
     font-size: 1.16667em
     font-weight: bold
-    padding: 1.2em 0 0.6em 0
+    padding: 0 0 1.2em 0
 
   blockquote
     padding-left: 20px
@@ -183,7 +201,33 @@ em
     line-height: 1.3em
     font-size: .75em
     overflow: auto
+    margin-bottom: 2em
     code
       border= !thinborder
       background: #f8f8f8
       padding: 10px
+
+#footer
+  padding-top: 20px
+
+#copyright
+  line-height: 1.2em
+  font-size: 0.75em
+  text-align: center
+  color: #999
+
+  a
+    text-decoration: none
+    color: #666
+
+    &:visited
+      color = #666
+
+    &:hover
+      color: #1b5f94
+
+    &.active
+      color: #1b5f94
+
+      &:hover
+        color: #1b5f94

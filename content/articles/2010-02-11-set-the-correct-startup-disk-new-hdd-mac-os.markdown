@@ -3,6 +3,8 @@ title: Set the correct startup disk when migrating to a cloned drive on Mac OS
 created_at: 2009-10-28 17:29
 ---
 
+## Now using an SSD Drive
+
 I just migrated my MacBook Pro to a Crucial 128GB SSD drive using
 [SuperDuper!](http://www.shirt-pocket.com/SuperDuper/SuperDuperDescription.html)
 
@@ -24,10 +26,6 @@ describe Tour do
 end
 ~~~~
 {: .ruby}
-
-
-
-### This would be an H3 heading
 
 I was expecting ~20s from the legendary Mac OS startup sound to seeing my 'desktop'.
 
