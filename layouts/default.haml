@@ -1,3 +1,13 @@
-- render "base" do
-  #info
+-render "base" do
+  #meta
+    #info
+      #{@item[:info]}
+    %h1#title
+      #{@item[:title]}
+    %ul#share
+      %li
+        %a{ :href => "http://www.twitter.com/stevenringo" } Follow me on twitter
+      %li 
+        %a{ :href => "/" } Subscribe
+  #main
     ~ yield

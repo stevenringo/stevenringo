@@ -14,6 +14,28 @@ end
 desc "Build site: clean /public then compile"
 task :build => [:clean, :compile]
 
+desc "Create new post"
+task :post do
+  require 'erb'
+  title = ENV['title']
+  markup = "markdown"
+  if title.nil?
+    puts 'rake post title="Some title"'
+    exit
+  end
+  template = File.read('templates/post.erb')
+  slug = title.downcase.gsub(/[\s\.]+/, '-').gsub(/[^a-z0-9\-]/, '').gsub(/\-{2,}/, '-')
+  filename = "content/articles/#{Time.now.strftime('%Y-%m-%d-')}#{slug}.#{markup}"
+  if !File.exist?(filename)
+    File.open(filename, "w") { |f| f.write ERB.new(template).result(binding) }
+    puts "running: #{ENV['EDITOR']} #{filename}"
+    system "$EDITOR #{filename}"
+  else
+    raise RuntimeError.new("File #{filename} already exists!")
+  end
+end
+
+
 desc "Watch the site and regenerate when it changes"
 task :watch do
   Rake::Task[:clean].execute

@@ -34,6 +34,11 @@ compile %r(^/(about|contact)) do
   layout 'default'
 end
 
+compile '/' do
+  filter :haml
+  layout 'default'
+end
+
 compile '/javascripts/*/' do
   nil # mark as "don't compile"
 end

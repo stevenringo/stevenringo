@@ -1,34 +1,31 @@
-!thinborder    = 1px "solid" #eee
+!thinborder    = 1px "solid" #ccc
 !bodytextcolor = #444
 
 html, body
   height: 100%
-
-body 
-  #page
-    // very important that page is inside body. the +container mixin used in layout sets the margin-bottom
-    // and we have to ensure its overridden by this setup:
-    min-height: 100%
-    height: auto !important
-    height: 100%
-    margin-bottom: -100px
-
-    #filler
-      //so we can have the magic sticky footer
-      clear: both
-      height: 100px
-
-#footer
-  clear: both
-  position: relative
-  height: 99px
-  border-top= !thinborder
 
 body
   font-family: Georgia, "Hoefler Text", "Times New Roman", serif
   background: white
   color = !bodytextcolor
   line-height: 1.5em  
+
+  #page
+    min-height: 100%
+    height: auto !important
+    height: 100%
+    margin-bottom: -60px
+
+    #filler
+      clear: both
+      height: 60px
+
+#footer
+  clear: both
+  position: relative
+  height: 59px
+  line-height: 59px
+  border-top= !thinborder
 
 strong
   font-weight: bold
@@ -42,11 +39,10 @@ sup
 
 #navigation
   width: 100%
-  background: #fff
   overflow: hidden
   position: relative
   font-weight: bold
-  font-size: 1em
+  font-size: 0.9em
 
   ul
     clear: left
@@ -57,6 +53,7 @@ sup
     position: relative
     left: 50%
     text-align: center
+    padding-right: 0px
 
     li
       display: block
@@ -65,12 +62,10 @@ sup
       position: relative
       right: 50%
       margin-top: 10px
-      padding-bottom: 10px
-      padding-right: 10px
+      padding-bottom: 0px
+      padding-right: 5px
+      padding-left: 5px
       border-bottom = !thinborder
-
-    > li:last-child
-      padding-right: 0px
 
     li a
       display: block
@@ -98,12 +93,12 @@ sup
   margin: 40px auto 60px auto
   padding-bottom: 20px
   display: block
-  border-bottom: 1px solid #eee
+  border-bottom= !thinborder
 
 #meta
   text-align: center
 
-  #date
+  #info
     color: #999
     border-bottom: 1px solid #eee
 
@@ -130,7 +125,7 @@ sup
         text-decoration: none
       
         &:visited
-          color: #999
+          color: #1b5f94
 
         &:hover
           color: #1b5f94
@@ -142,30 +137,29 @@ sup
             color: #1b5f94
 
 #main
-  padding-bottom: 60px
+  padding-bottom: 50px
   margin-bottom: 40px
   background: url(/images/theme/post-flourish.png) no-repeat center bottom
 
   p
     margin-bottom: 1.5em
 
-  //
-    > p:first-child:first-letter
-      font-size: 3.2em
-      padding-top: 10px
-      padding-right: 3px
-      font-weight: bold
-      float: left
+  > p:first-child:first-letter
+    font-size: 3.2em
+    padding-top: 12px
+    padding-right: 8px
+    font-weight: bold
+    float: left
 
   a
     text-decoration: none
     color: #1b5f94
 
     &:visited
-      color = !bodytextcolor
+      color: #1b5f94
 
     &:hover
-      color: #1b5f94
+      color= !bodytextcolor
 
     &.active
       color: #1b5f94
@@ -191,27 +185,76 @@ sup
     border-left: 1px solid #ccc
     margin-left: 20px
     font-style: italic
-  
+
+  code
+    font-family: "Courier New"
+    font-size: 0.9em
+    color: black
+    font-weight: bold
+
   pre
     border= !thinborder
-    font-family: Monaco, Menlo, "Courier New"
-    font-size: 0.8em
     background: #fff
     padding: 2px
     line-height: 1.3em
-    font-size: .75em
     overflow: auto
     margin-bottom: 2em
     code
       border= !thinborder
       background: #f8f8f8
       padding: 10px
+      
+  ul
+    margin-bottom: 1.5em
+    li
+      margin-bottom: 1em
+      list-style-type: disc
+      margin-left: 2em
+      list-style-position: outside
 
-#footer
-  padding-top: 20px
+  ol
+    margin-bottom: 1.5em
+    li
+      margin-bottom: 1em
+      list-style-type: decimal
+      margin-left: 2em
+      list-style-position: outside
+
+  img
+    border= !thinborder
+    background: #fff
+    padding: 10px
+    display: block
+    margin: auto
+
+  #toc
+    margin-left: 5em
+
+    h2
+      float: left
+      margin-left: -5em
+      color: gray
+
+    h3
+      padding-bottom: 1em
+
+    ul
+      li
+        list-style-type: none
+        text-indent: -3em
+        margin-left: 3em
+
+        .date
+          padding-right: 3em
+          float: left
+          color: #aaa
+
+      
+
+.footnotes
+  font-size: 0.8em
 
 #copyright
-  line-height: 1.2em
   font-size: 0.75em
   text-align: center
   color: #999

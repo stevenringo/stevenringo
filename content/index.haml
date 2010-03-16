@@ -1,11 +1,16 @@
 ---
-title: Articles
+title: Table of contents
+info: Welcome
 ---
-#index
-  - sorted_articles[0..9].each do |post|
-    %h1= link_to(post[:title], post.reps[0].path)
-    %p.date
-      #{post.created_at.strftime("%B #{post.created_at.day}, %Y")}
-      %span.fancy &sect;
-    %p.summary
-      #{post[:summary]}
+
+#toc
+  - collated_posts.sort.reverse.each do |year, months|
+    %h2= year
+    - months.each do |month,days|
+      %h3= Date::MONTHNAMES[month]
+      %ul
+        - days.each do |day,posts|
+          - posts.each do |post|
+            %li
+              %strong.date= "%02d" % day
+              = link_to(post[:title], post.reps[0].path)
