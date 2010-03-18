@@ -1,12 +1,11 @@
 -render "base" do
-  .post
-    .heading
-      %span.date
-        #{@item.created_at.strftime("%d %B")}
-        %span.year
-          #{@item.created_at.strftime("%Y")}
-        
-      %h1
-        #{@item[:title]}
-    .entry
-      ~ yield
+  #meta
+    #info
+      #{@item.created_at.strftime("%d <strong>%B<\/strong> %Y")}
+    %h1#title
+      %a{ :href => @item.reps[0].path } #{@item[:title]}
+    %ul#share
+      %li
+        %a.emailabout{ :href => "", :rel => "moc/ognirnevets//hcuot" } e-mail me about this
+  #main
+    ~ yield

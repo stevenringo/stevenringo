@@ -1,4 +1,4 @@
-!blueprint_grid_columns = 20
+!blueprint_grid_columns = 24
 !blueprint_grid_width   = 30px
 !blueprint_grid_margin  = 10px
 
@@ -8,17 +8,14 @@ body
   #page
     +container
     #content
-      +column(20,true)
-      .post
-        .entry, #disqus_thread
-          +prepend(4)
-          +column(16,true)
-  #pagewidth
-    #footer
-      +container
-      #links
-        +prepend(4)
-        +column(6)
-      #search
-        +column(10,true)
-
+      +column(24,true)
+      #meta
+        +column(8)
+        +append(2)
+      #main
+        +column(14,true)
+  #footer
+    +container
+    #copyright
+      +column(24,true)
+  

@@ -1,10 +1,43 @@
+@import compass/css3.sass
+
+!maincolour1        = #b8b8b8
+!thinborder         = 1px "solid"  !maincolour1
+!thinborderdouble   = 3px "double" !maincolour1
+!bodytextcolor      = #424242
+!footer_height      = 80px
+!footer_padding_top = 15px
+
+html, body
+  height: 100%
+
 body
-  font-family: "Helvetica"
+  font-family: Georgia, "Hoefler Text", "Times New Roman", serif
   background: white
+  color = !bodytextcolor
+  line-height: 1.5em  
+
+  #page
+    min-height: 100%
+    height: auto !important
+    height: 100%
+    margin-bottom= -!footer_height
+
+    #filler
+      clear: both
+      height: 100px
+
+strong
+  font-weight: bold
+
+em
+  font-style: italic
+  
+sup
+  vertical-align: super
+  font-size: 0.8em
 
 #navigation
   width: 100%
-  background: #fff
   overflow: hidden
   position: relative
   font-weight: bold
@@ -19,6 +52,7 @@ body
     position: relative
     left: 50%
     text-align: center
+    padding-right: 0px
 
     li
       display: block
@@ -26,13 +60,13 @@ body
       list-style: none
       position: relative
       right: 50%
-      margin-top: 10px
-      padding-bottom: 10px
-      padding-right: 10px
-      border-bottom: 1px solid #cfdde5
-
-    > li:last-child
-      padding-right: 0px
+      margin-top: 15px
+      padding-bottom: 5px
+      padding-right: 5px
+      padding-left: 5px
+      padding-top: 5px
+      border-bottom = !thinborderdouble
+      border-top    = !thinborder
 
     li a
       display: block
@@ -51,141 +85,212 @@ body
         &:hover
           color: #1b5f94
 
-
 #logo h1 a
   text-indent: -9999em
   overflow: hidden
-  height: 99px
-  width: 634px
-  background-image: url("/images/theme/apparently-so-logo.png")
-  background-repeat: no-repeat
-  background-position: 50% 50%
-  margin: 90px auto 90px
+  height: 122px
+  width: 950px
+  background: url("/images/theme/apparently-so-logo.png") no-repeat center center
+  margin: 70px auto 90px auto
   display: block
 
-#content
-  padding-bottom: 200px
-  font-size: 1.05em
-  line-height: 1.6em
-  margin-top: 0px
-  color: #444
-  font-family: "Times New Roman"
-  line-height: 1.6em
-  font-size: 0.98em
+#meta
+  text-align: center
+
+  #info
+    color= !bodytextcolor
+    display: block
+    height: 3em
+    background: url("/images/theme/title-flourish1.png") no-repeat center bottom
+
+  #title
+    padding: 2em 0 3em 0
+    background: url(/images/theme/title-flourish2.png) no-repeat center bottom
+    font-size: 1.6em
+    font-weight: bold
+    color: #2c2c2c
+    line-height: 1.2em
+    
+    a
+      color= !bodytextcolor
+      text-decoration: none
+    
+      &:visited
+        color= !bodytextcolor
+
+      &:hover
+        color: #1b5f94
+
+      &.active
+        color: #1b5f94
+
+        &:hover
+          color: #1b5f94
+    
+
+  #share
+    font-size: 0.95em
+    color: #999
+
+    li
+      line-height: 1.4em
+      
+      a
+        color: #1b5f94
+        text-decoration: none
+      
+        &:visited
+          color: #1b5f94
+
+        &:hover
+          color: #1b5f94
+
+        &.active
+          color: #1b5f94
+
+          &:hover
+            color: #1b5f94
+
+#main
+  padding-bottom: 50px
+  margin-bottom: 40px
+  background: url(/images/theme/post-flourish.png) no-repeat center bottom
 
   p
-    margin-bottom: 0.9em
+    margin-bottom: 1.5em
 
-  h1
-    font-size: 1.3em
-    color: #1b5f94
+  > p:first-child:first-letter
+    font-size: 3.2em
+    padding-top: 12px
+    padding-right: 8px
     font-weight: bold
-    font-family: Helvetica
-    margin-left: 160px
+    float: left
 
+  a
+    text-decoration: none
+    color: #1b5f94
 
+    &:visited
+      color: #1b5f94
+
+    &:hover
+      color= !bodytextcolor
+
+    &.active
+      color: #1b5f94
+
+      &:hover
+        color: #1b5f94
   h2
-    font-size: 1.15em
-    padding-top: 0.5em
-    padding-bottom: 0.3em
+    margin-top: 0
+    margin-bottom: 0
+    font-size: 1.33333em
     font-weight: bold
-    font-family: Helvetica
-    color: #1b5f94
+    padding: 0 0 1.2em 0
 
   h3
-    font-size: 1.1em
-    padding-top: 0.5em
-    padding-bottom: 0.5em
+    margin-top: 0
+    margin-bottom: 0
+    font-size: 1.16667em
     font-weight: bold
-    color: #1b5f94
-    font-family: Helvetica
-
-  .heading
-    border-bottom: 1px solid #cfdde5
-    padding-bottom: .1em
-    margin-bottom: .5em
-    position: relative
-
-  .date
-    font-family: Helvetica
-    font-weight: bold
-    font-size: 0.90em
-    position: absolute
-    bottom: 0
-    left: 0
-
-    .year
-      font-family: "Helvetica Neue"
-      font-weight: 200
-
-  .heading h1
-    font-size: 1.3em
-    color: #1b5f94
-    font-weight: bold
-    font-family: Helvetica
-    margin-left: 160px
+    padding: 0 0 1.2em 0
 
   blockquote
     padding-left: 20px
     border-left: 1px solid #ccc
     margin-left: 20px
     font-style: italic
-  pre
-    padding: 10px
-  
-  pre code
-    font-family: Monaco, Menlo, "Courier New"
+
+  code
+    font-family: "Courier New"
     font-size: 0.9em
-    
+    color: black
+    font-weight: bold
 
-html, body, #page
-  height: 100%
+  pre
+    border= !thinborder
+    background: #fff
+    padding: 2px
+    line-height: 1.3em
+    overflow: auto
+    margin-bottom: 2em
+    code
+      border= !thinborder
+      background: #f8f8f8
+      padding: 10px
+      
+  ul
+    margin-bottom: 1.5em
+    li
+      margin-bottom: 1em
+      list-style-type: disc
+      margin-left: 2em
+      list-style-position: outside
 
+  ol
+    margin-bottom: 1.5em
+    li
+      margin-bottom: 1em
+      list-style-type: decimal
+      margin-left: 2em
+      list-style-position: outside
 
-body > #page
-  height: auto
-  min-height: 100%
+  img
+    border= !thinborder
+    background: #fff
+    padding: 5px
+    display: block
+    margin: auto
+    +box-shadow(#555, 0px, 0px, 10px)
 
+  #toc
+    margin-left: 5em
 
-#pagewidth
-  position: relative
-  margin-top: -100px
-  height: 99px
-  clear: both
+    h2
+      float: left
+      margin-left: -5em
+      color: gray
+
+    h3
+      padding-bottom: 1em
+
+    ul
+      li
+        list-style-type: none
+        text-indent: -3em
+        margin-left: 3em
+
+        .date
+          padding-right: 3em
+          float: left
+          color: #aaa
+
+      
+
+.footnotes
   font-size: 0.8em
-  line-height: 1.4em
-  background: #f2f2f2
-  border-top: 1px solid #cfdde5
-
 
 #footer
-  padding-top: 15px
+  clear: both
+  position: relative
+  height = !footer_height - 1 - !footer_padding_top
+  border-top = !thinborder
+  text-align: center
+  color: #888
+  font-size: 0.75em
+  padding-top= !footer_padding_top
+  a
+    text-decoration: none
+    color: #222
 
-  #search
-    text-align: right
+    &:visited
+      color = #222
 
-a
-  &#twitter
-    background: url("/images/theme/twitter.png") no-repeat
-    height: 24px
-    padding-left: 32px
-    padding-bottom: 5px
-    display: block
-    line-height: 24px
-    font-weight: bold
-    color: #1b5f94
+    &:hover
+      color: #1b5f94
 
-  &#rss
-    background: url("/images/theme/rss.png") no-repeat
-    height: 24px
-    padding-left: 32px
-    display: block
-    line-height: 24px
-    font-weight: bold
-    color: #1b5f94
+    &.active
+      color: #1b5f94
 
-
-#search form input[type=text]
-  width: 200px
-
-
+      &:hover
+        color: #1b5f94

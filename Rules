@@ -34,6 +34,11 @@ compile %r(^/(about|contact)) do
   layout 'default'
 end
 
+compile '/' do
+  filter :haml
+  layout 'default'
+end
+
 compile '/javascripts/*/' do
   nil # mark as "don't compile"
 end
@@ -48,6 +53,10 @@ end
 
 compile '/stylesheets/*/' do
   filter :sass, Compass.sass_engine_options 
+end
+
+compile '/atom/' do
+  filter :haml
 end
 
 compile '*' do
@@ -75,6 +84,10 @@ end
 
 route '/javascripts/*/' do
   item.identifier.chop + ".js"
+end
+
+route '/atom/' do
+  '/atom.xml'
 end
 
 route '*' do
