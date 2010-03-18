@@ -1,5 +1,9 @@
-!thinborder    = 1px "solid" #ccc
-!bodytextcolor = #444
+!maincolour1        = #b8b8b8
+!thinborder         = 1px "solid"  !maincolour1
+!thinborderdouble   = 3px "double" !maincolour1
+!bodytextcolor      = #424242
+!footer_height      = 80px
+!footer_padding_top = 15px
 
 html, body
   height: 100%
@@ -14,18 +18,11 @@ body
     min-height: 100%
     height: auto !important
     height: 100%
-    margin-bottom: -60px
+    margin-bottom= -!footer_height
 
     #filler
       clear: both
-      height: 60px
-
-#footer
-  clear: both
-  position: relative
-  height: 59px
-  line-height: 59px
-  border-top= !thinborder
+      height: 100px
 
 strong
   font-weight: bold
@@ -61,11 +58,13 @@ sup
       list-style: none
       position: relative
       right: 50%
-      margin-top: 10px
-      padding-bottom: 0px
+      margin-top: 15px
+      padding-bottom: 5px
       padding-right: 5px
       padding-left: 5px
-      border-bottom = !thinborder
+      padding-top: 5px
+      border-bottom = !thinborderdouble
+      border-top    = !thinborder
 
     li a
       display: block
@@ -87,33 +86,31 @@ sup
 #logo h1 a
   text-indent: -9999em
   overflow: hidden
-  height: 175px
+  height: 122px
   width: 950px
-  background: url("/images/theme/apparently-so-logo.png") no-repeat center top
-  margin: 40px auto 60px auto
-  padding-bottom: 20px
+  background: url("/images/theme/apparently-so-logo.png") no-repeat center center
+  margin: 70px auto 90px auto
   display: block
-  border-bottom= !thinborder
 
 #meta
   text-align: center
 
   #info
-    color: #999
-    border-bottom: 1px solid #eee
+    color= !bodytextcolor
+    display: block
+    height: 3em
+    background: url("/images/theme/title-flourish1.png") no-repeat center bottom
 
   #title
-    padding: 30px 0 60px 0
-    margin-bottom: 20px
-    background: url(/images/theme/title-flourish.png) no-repeat center bottom
+    padding: 2em 0 3em 0
+    margin-bottom: 0.5em
+    background: url(/images/theme/title-flourish2.png) no-repeat center bottom
     font-size: 1.6em
     font-weight: bold
     color: #2c2c2c
     line-height: 1.2em
 
   #share
-    border-top: 1px solid #eee
-    padding-top: 10px
     font-size: 0.95em
     color: #999
 
@@ -254,11 +251,15 @@ sup
 .footnotes
   font-size: 0.8em
 
-#copyright
-  font-size: 0.75em
+#footer
+  clear: both
+  position: relative
+  height = !footer_height - 1 - !footer_padding_top
+  border-top = !thinborder
   text-align: center
   color: #999
-
+  font-size: 0.75em
+  padding-top= !footer_padding_top
   a
     text-decoration: none
     color: #666

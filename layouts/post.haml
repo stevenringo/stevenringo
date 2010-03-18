@@ -1,12 +1,11 @@
 -render "base" do
   #meta
     #info
-      #{@item.created_at.strftime("%d <strong>%B<\/strong> %Y")}, <em>by</em> Steven Ringo
+      #{@item.created_at.strftime("%d <strong>%B<\/strong> %Y")}
     %h1#title
-      #{@item[:title]}
+      %a{ :href => @item.reps[0].path } #{@item[:title]}
     %ul#share
-      %li 
-        %a{ :href => "/" } Mail me about this
+      %li
       %li 
         %a{ :href => "/" } Share on twitter
       %li

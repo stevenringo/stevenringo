@@ -4,7 +4,7 @@ info: Welcome
 ---
 
 #toc
-  - collated_posts.sort.reverse.each do |year, months|
+  - collated_posts.sort.each do |year, months|
     %h2= year
     - months.each do |month,days|
       %h3= Date::MONTHNAMES[month]
@@ -13,4 +13,4 @@ info: Welcome
           - posts.each do |post|
             %li
               %strong.date= "%02d" % day
-              = link_to(post[:title], post.reps[0].path)
+              = link_to((post[:title]), post.reps[0].path)
