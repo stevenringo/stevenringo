@@ -1,3 +1,5 @@
+@import compass/css3.sass
+
 !maincolour1        = #b8b8b8
 !thinborder         = 1px "solid"  !maincolour1
 !thinborderdouble   = 3px "double" !maincolour1
@@ -103,12 +105,28 @@ sup
 
   #title
     padding: 2em 0 3em 0
-    margin-bottom: 0.5em
     background: url(/images/theme/title-flourish2.png) no-repeat center bottom
     font-size: 1.6em
     font-weight: bold
     color: #2c2c2c
     line-height: 1.2em
+    
+    a
+      color= !bodytextcolor
+      text-decoration: none
+    
+      &:visited
+        color= !bodytextcolor
+
+      &:hover
+        color: #1b5f94
+
+      &.active
+        color: #1b5f94
+
+        &:hover
+          color: #1b5f94
+    
 
   #share
     font-size: 0.95em
@@ -220,9 +238,10 @@ sup
   img
     border= !thinborder
     background: #fff
-    padding: 10px
+    padding: 5px
     display: block
     margin: auto
+    +box-shadow(#555, 0px, 0px, 10px)
 
   #toc
     margin-left: 5em
@@ -257,15 +276,15 @@ sup
   height = !footer_height - 1 - !footer_padding_top
   border-top = !thinborder
   text-align: center
-  color: #999
+  color: #888
   font-size: 0.75em
   padding-top= !footer_padding_top
   a
     text-decoration: none
-    color: #666
+    color: #222
 
     &:visited
-      color = #666
+      color = #222
 
     &:hover
       color: #1b5f94

@@ -3,7 +3,7 @@
     #info
       #{@item[:info]}
     %h1#title
-      #{@item[:title]}
+      %a{ :href => @item.reps[0].path } #{@item[:title]}
     %ul#share
       %li
         %a{ :href => "http://www.twitter.com/stevenringo" } Follow me on twitter
