@@ -26,6 +26,7 @@ task :post do
   template = File.read('templates/post.erb')
   slug = title.downcase.gsub(/[\s\.]+/, '-').gsub(/[^a-z0-9\-]/, '').gsub(/\-{2,}/, '-')
   filename = "content/articles/#{Time.now.strftime('%Y-%m-%d-')}#{slug}.#{markup}"
+  short_url = bitly_short_url("http://www.stevenringo.com/#{slug}")
   if !File.exist?(filename)
     File.open(filename, "w") { |f| f.write ERB.new(template).result(binding) }
     puts "running: #{ENV['EDITOR']} #{filename}"
@@ -67,4 +68,10 @@ def rebuild_site(relative)
   puts ">>> Change Detected to: #{relative} <<<"
   Rake::Task[:clean].execute
   Rake::Task[:compile].execute
+end
+
+def bitly_short_url(url)
+  require 'bitly'
+  bitly = Bitly.new('stevenringo', 'R_707a61540e3c1bc88e1bab7299d58873')
+  bitly.shorten(url, :history => 1).short_url
 end
