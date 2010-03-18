@@ -1,16 +1,16 @@
 ---
-title: Table of contents
+title: Contents
 info: Welcome
 ---
 
 #toc
-  - collated_posts.sort.each do |year, months|
+  - collated_posts.sort.reverse.each do |year, months|
     %h2= year
     - months.each do |month,days|
       %h3= Date::MONTHNAMES[month]
       %ul
-        - days.each do |day,posts|
+        - days.sort.each do |day,posts|
           - posts.each do |post|
             %li
-              %strong.date= "%02d" % day
+              %strong.date= "%02d" % day 
               = link_to((post[:title]), post.reps[0].path)

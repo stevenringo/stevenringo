@@ -1,6 +1,6 @@
 ---
 title: Tech23 - key takeaways
-created_at: 2010-03-13 13:41
+created_at: 2009-10-27 22:41
 ---
 
 I spent most of today at <a href="http://www.tech23.com.au/">Tech23</a>. I arrived with few expectations and left very pleasantly surprised.
