@@ -35,7 +35,6 @@ task :post do
   end
 end
 
-
 desc "Watch the site and regenerate when it changes"
 task :watch do
   Rake::Task[:clean].execute
@@ -55,6 +54,13 @@ task :watch do
       create {|base, relative| rebuild_site(relative)}
     end
   end
+end
+
+desc "Deploy to github pages"
+task :deploy do
+  Rake::Task[:clean].execute
+  Rake::Task[:compile].execute
+  system "cp -R * ../../www.stevenringo.com/"
 end
 
 def rebuild_site(relative)
