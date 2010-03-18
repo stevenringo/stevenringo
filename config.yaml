@@ -6,4 +6,4 @@ data_sources:
 
 output_dir: public
 
-base_url: http://localhost
+base_url: http://www.stevenringo.com

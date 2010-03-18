@@ -34,11 +34,6 @@ compile %r(^/(about|contact)) do
   layout 'default'
 end
 
-compile '/' do
-  filter :haml
-  layout 'default'
-end
-
 compile '/javascripts/*/' do
   nil # mark as "don't compile"
 end
@@ -56,11 +51,11 @@ compile '/stylesheets/*/' do
 end
 
 compile '/atom/' do
-  filter :haml
+  filter :haml, :format => :html5
 end
 
 compile '*' do
-  filter :haml
+  filter :haml, :format => :html5
   layout 'default'
 end
 
@@ -94,4 +89,4 @@ route '*' do
   item.identifier + 'index.html'
 end
 
-layout '*', :haml
+layout '*', :haml, :format => :html5

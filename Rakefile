@@ -60,7 +60,7 @@ desc "Deploy to github pages"
 task :deploy do
   Rake::Task[:clean].execute
   Rake::Task[:compile].execute
-  system "cp -R * ../../www.stevenringo.com/"
+  system "cp -Rv ./public/ ../www.stevenringo.com/"
 end
 
 def rebuild_site(relative)
