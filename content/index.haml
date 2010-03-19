@@ -9,7 +9,7 @@ info: Welcome
     - months.each do |month,days|
       %h3= Date::MONTHNAMES[month]
       %ul
-        - days.sort.each do |day,posts|
+        - days.sort.reverse.each do |day,posts|
           - posts.each do |post|
             %li
               %strong.date= "%02d" % day 
