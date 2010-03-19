@@ -7,25 +7,22 @@
 !footer_height      = 80px
 !footer_padding_top = 15px
 
-html, body
-  height: 100%
-
 body
   font-family: Georgia, "Hoefler Text", "Times New Roman", serif
-  background: white
+  background: url("/images/theme/damask_texture.png")
   color = !bodytextcolor
   line-height: 1.5em
   font-size: 0.95em
-
   #page
-    min-height: 100%
-    height: auto !important
-    height: 100%
-    margin-bottom= -!footer_height
+    margin-top: 10px
+    background-color: white
+    background-color: rgba(255,255,255,0.85)
+    border: 1px solid #bbb
+    +box-shadow(#888, 0px, 0px, 4px)
 
     #filler
       clear: both
-      height: 100px
+      height: 10px
 
 strong
   font-weight: bold
@@ -242,7 +239,6 @@ sup
     padding: 5px
     display: block
     margin: auto
-    +box-shadow(#555, 0px, 0px, 10px)
 
   #toc
     margin-left: 5em
@@ -274,11 +270,10 @@ sup
 
 #footer
   clear: both
-  position: relative
-  height = !footer_height - 1 - !footer_padding_top
+  height = 100px
   border-top = !thinborder
   text-align: center
-  color: #888
+  color: #666
   font-size: 0.8em
   padding-top= !footer_padding_top
   a

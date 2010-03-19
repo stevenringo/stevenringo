@@ -62,6 +62,7 @@ task :deploy do
   Rake::Task[:clean].execute
   Rake::Task[:compile].execute
   system "cp -Rv ./public/ ../www.stevenringo.com/"
+  
 end
 
 def rebuild_site(relative)
